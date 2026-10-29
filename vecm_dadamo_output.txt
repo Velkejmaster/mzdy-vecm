@@ -1,0 +1,251 @@
+=====================================================================
+3. NESTABILITA PUVODNIHO MODELU (spec. A)
+=====================================================================
+
+-- 3a. Subvzorky: beta (normalizace ZEM = 1) a t-hodnoty alfa --
+A 2000-Q1–2026-Q2: beta =  -1.40  0.79 -0.04 -0.32  1.00 | t(alfa) =  -3.0 -3.9 -1.0 -0.7 -3.6
+A 2000-Q1–2012-Q4: beta =   0.27 -0.64 -1.54  0.49  1.00 | t(alfa) =   3.1  2.2  4.4  3.3  1.4
+A 2000-Q1–2019-Q4: beta =  -1.91  0.02  1.34 -0.44  1.00 | t(alfa) =  -1.7 -0.7 -1.2  0.4 -4.7
+A 2005-Q1–2026-Q2: beta =  -1.51  0.65  0.37 -0.50  1.00 | t(alfa) =  -3.5 -3.8 -3.4 -1.1 -4.3
+A 2010-Q1–2026-Q2: beta =   6.69  5.26-12.76  0.65  1.00 | t(alfa) =  -1.4  0.1  2.4  1.9  0.7
+D 2000-Q1–2026-Q2: beta =  -0.70  0.08  0.26 -0.30  1.00 | t(alfa) =  -4.9 -2.8 -2.8 -1.4 -5.6
+D 2000-Q1–2012-Q4: beta = -10.76  3.60 -0.19  1.68  1.00 | t(alfa) =   7.9 -0.8  1.5  0.6  2.6
+D 2000-Q1–2019-Q4: beta =   0.49 -0.97  1.10 -0.78  1.00 | t(alfa) =  -5.3 -0.6 -2.7 -0.7 -4.5
+D 2005-Q1–2026-Q2: beta =  -0.60  0.14  0.30 -0.51  1.00 | t(alfa) =  -5.8 -2.9 -5.8 -1.1 -4.2
+D 2010-Q1–2026-Q2: beta =  -0.72 -0.08  0.66 -0.49  1.00 | t(alfa) =  -6.0 -4.8 -8.4 -3.6 -3.8
+
+-- 3b. Klouzavé okno 48 čtvrtletí (spec. A): beta (ZEM = 1) --
+           PRU    STA   TRZ NETRZ ZEM
+2011-Q4   0.14  -0.75 -0.73  0.18   1
+2012-Q4 -36.04 -13.35 49.05 -1.59   1
+2013-Q4  -1.07   0.69 -0.35 -0.37   1
+2014-Q4  -0.81   1.18 -1.18 -0.25   1
+2015-Q4  -0.82   1.23 -1.21 -0.28   1
+2016-Q4  -0.81   1.21 -1.20 -0.30   1
+2017-Q4  -0.93   1.58 -1.18 -0.46   1
+2018-Q4  -1.07   1.49 -1.06 -0.28   1
+2019-Q4  -0.38   2.49 -2.87 -0.14   1
+2020-Q4  -1.29   1.27 -1.03  0.01   1
+2021-Q4  -1.62   1.44 -1.39  0.52   1
+2022-Q4   2.20   6.49 -3.34 -4.87   1
+2023-Q4   0.08   3.13 -2.14 -1.52   1
+2024-Q4   1.50   0.61 -2.67 -0.11   1
+2025-Q4   1.89  -0.36 -2.29 -0.02   1
+
+-- 3c. Andrews sup-F: zlom v rovnicích VECM (beta pevné), p --
+A : PRU p=0.203 (2020-Q2) | STA p=0.510 (2010-Q1) | TRZ p=0.036 (2008-Q1) | NETRZ p=0.079 (2004-Q3) | ZEM p=0.619 (2021-Q4) 
+D : PRU p=0.002 (2019-Q3) | STA p=0.049 (2012-Q1) | TRZ p=0.001 (2010-Q1) | NETRZ p=0.304 (2007-Q3) | ZEM p=0.067 (2008-Q3) 
+
+-- 3d. Lütkepohl–Saikkonen–Trenkler: kointegrace s posunem v neznámém čase --
+PRU,STA,TRZ,NETRZ,ZEM | odhad zlomu: 2020-Q3 
+          stat 10pct  5pct  1pct
+r <= 4 |  2.75  3.00  4.12  6.89
+r <= 3 |  8.59 10.45 12.28 16.42
+r <= 2 | 20.69 21.80 24.28 29.47
+r <= 1 | 37.28 36.90 40.07 46.30
+r = 0  | 60.85 55.95 59.75 67.17
+PRU,STA,TRZ,NETRZ | odhad zlomu: 2020-Q3 
+          stat 10pct  5pct  1pct
+r <= 3 |  1.66  3.00  4.12  6.89
+r <= 2 |  7.22 10.45 12.28 16.42
+r <= 1 | 16.93 21.80 24.28 29.47
+r = 0  | 39.51 36.90 40.07 46.30
+
+=====================================================================
+4. SROVNANI SPECIFIKACI (wild bootstrap B = 499 ; Cavaliere, Rahbek, Taylor 2012)
+=====================================================================
+
+[A] puvodni: K=2, 5 impulzu, bez trendu  (T=104, n=5)
+  trace: r=0 79.2 (boot p=0.058) | r<=1 40.6 (boot p=0.343) | nejv. nerestr. kořen (r=1) = 0.878
+  LM(1) p=0.193  LM(4) p=0.667  JB mult. p=0.002  | ADF(ECT)=-2.91 | trend v CI = 0: p=-
+  jednorovnicové p:
+        PRU   STA   TRZ NETRZ   ZEM
+LB4   0.879 0.143 0.179 0.192 0.965
+LB8   0.990 0.518 0.299 0.035 0.041
+JB    0.088 0.003 0.036 0.000 0.613
+ARCH4 0.690 0.042 0.890 0.001 0.943
+
+[B] dummy dle X-13, bez trendu, K=2  (T=104, n=5)
+  trace: r=0 68.6 (boot p=0.200) | r<=1 25.3 (boot p=0.958) | nejv. nerestr. kořen (r=1) = 0.866
+  LM(1) p=0.124  LM(4) p=0.807  JB mult. p=0.007  | ADF(ECT)=-3.07 | trend v CI = 0: p=-
+  jednorovnicové p:
+        PRU   STA   TRZ NETRZ   ZEM
+LB4   0.564 0.661 0.031 0.133 0.967
+LB8   0.746 0.898 0.016 0.021 0.041
+JB    0.104 0.016 0.001 0.000 0.727
+ARCH4 0.734 0.176 0.376 0.003 0.944
+
+[C] dummy dle X-13 + trend v CI, K=2  (T=104, n=5)
+  trace: r=0 98.2 (boot p=0.038) | r<=1 48.6 (boot p=0.687) | nejv. nerestr. kořen (r=1) = 0.841
+  LM(1) p=0.143  LM(4) p=0.924  JB mult. p=0.000  | ADF(ECT)=-3.04 | trend v CI = 0: p=0.013
+  jednorovnicové p:
+        PRU   STA   TRZ NETRZ   ZEM
+LB4   0.828 0.697 0.055 0.190 0.960
+LB8   0.902 0.906 0.070 0.031 0.057
+JB    0.000 0.042 0.000 0.000 0.541
+ARCH4 0.847 0.219 0.436 0.004 0.836
+
+[D] dummy dle X-13 + trend v CI, K=3 (HLAVNI)  (T=103, n=5)
+  trace: r=0 97.7 (boot p=0.152) | r<=1 46.3 (boot p=0.842) | nejv. nerestr. kořen (r=1) = 0.778
+  LM(1) p=0.644  LM(4) p=0.779  JB mult. p=0.001  | ADF(ECT)=-3.13 | trend v CI = 0: p=0.019
+  jednorovnicové p:
+        PRU   STA   TRZ NETRZ   ZEM
+LB4   0.735 1.000 0.077 0.484 0.986
+LB8   0.935 0.997 0.087 0.059 0.152
+JB    0.000 0.027 0.142 0.002 0.555
+ARCH4 0.468 0.031 0.222 0.009 0.926
+
+[E] jako C + posun 2009Q3 v CI  (T=104, n=5)
+  trace: r=0 128.6 (boot p=0.002) | r<=1 62.4 (boot p=0.647) | nejv. nerestr. kořen (r=1) = 0.871
+  LM(1) p=0.484  LM(4) p=0.855  JB mult. p=0.030  | ADF(ECT)=-2.40 | trend v CI = 0: p=0.000
+  jednorovnicové p:
+        PRU   STA   TRZ NETRZ   ZEM
+LB4   0.120 0.926 0.139 0.329 0.999
+LB8   0.322 0.937 0.277 0.033 0.212
+JB    0.034 0.650 0.000 0.000 0.751
+ARCH4 0.248 0.007 0.145 0.002 0.838
+
+[F] jako D bez zemedelstvi (vymezeni D'Adamo)  (T=103, n=4)
+  trace: r=0 43.6 (boot p=0.844) | r<=1 22.0 (boot p=0.922) | nejv. nerestr. kořen (r=1) = 0.659
+  LM(1) p=0.219  LM(4) p=0.129  JB mult. p=0.005  | ADF(ECT)=-3.79 | trend v CI = 0: p=0.010
+  jednorovnicové p:
+        PRU   STA   TRZ NETRZ
+LB4   0.003 0.706 0.031 0.227
+LB8   0.022 0.791 0.015 0.034
+JB    0.984 0.017 0.050 0.002
+ARCH4 0.021 0.004 0.611 0.011
+
+=====================================================================
+5. MZDOVE VAZBY PODLE D'ADAMA (2014)
+=====================================================================
+
+######## Specifikace D: dummy dle X-13 + trend v CI, K=3 (HLAVNI) ########
+Kointegrační vektor (normalizace na ZEM = 1):
+    PRU     STA     TRZ   NETRZ     ZEM   trend 
+-0.7048  0.0800  0.2584 -0.3046  1.0000 -0.0042 
+Alfa a t-hodnoty:
+        PRU    STA   TRZ  NETRZ    ZEM
+alfa -0.193 -0.178 -0.15 -0.128 -0.427
+t    -4.924 -2.770 -2.82 -1.354 -5.552
+1 + beta'alfa = 0.695, poločas návratu = 1.9 Q
+
+(i) Dlouhodobé vůdcovství – slabá exogenita alfa_i = 0, p:
+  PRU   STA   TRZ NETRZ   ZEM 
+0.000 0.017 0.005 0.168 0.000 
+    vyloučení z dlouhodobého vztahu beta_i = 0, p:
+  PRU   STA   TRZ NETRZ   ZEM 
+0.054 0.753 0.248 0.004 0.000 
+
+(ii) Plná mzdová adaptabilita – beta = (1, -1, 0, ...), deterministika volná, p:
+      PRU STA TRZ NETRZ ZEM
+PRU    NA   0   0     0   0
+STA     0  NA   0     0   0
+TRZ     0   0  NA     0   0
+NETRZ   0   0   0    NA   0
+ZEM     0   0   0     0  NA
+     slabší forma – homogenita (součet beta mezd = 0): p = 0.014
+
+(iii) Krátkodobé vůdcovství – Grangerova kauzalita v Gamma (Wald, řádek -> sloupec), p:
+       rovnice
+pricina   PRU   STA   TRZ NETRZ   ZEM
+  PRU      NA 0.445 0.010 0.198 0.039
+  STA   0.785    NA 0.538 0.768 0.941
+  TRZ   0.168 0.103    NA 0.010 0.016
+  NETRZ 0.582 0.248 0.884    NA 0.008
+  ZEM   0.008 0.163 0.042 0.789    NA
+     krátkodobý vůdce (i -> j a zároveň ne j -> i): PRU -> TRZ; TRZ -> NETRZ; NETRZ -> ZEM 
+
+Korelace reziduí (současné spillovery v rámci čtvrtletí):
+       PRU   STA  TRZ NETRZ   ZEM
+PRU   1.00  0.23 0.55  0.31  0.16
+STA   0.23  1.00 0.32  0.27 -0.07
+TRZ   0.55  0.32 1.00  0.55  0.22
+NETRZ 0.31  0.27 0.55  1.00  0.25
+ZEM   0.16 -0.07 0.22  0.25  1.00
+
+Dlouhodobé dopady šoků C = beta_perp (alfa_perp' Gamma beta_perp)^-1 alfa_perp' (sloupec = šok):
+       sok
+odezva    PRU   STA   TRZ NETRZ   ZEM
+  PRU    1.52  0.00 -0.10  0.35 -0.76
+  STA    0.47  0.73  0.24  0.52 -0.76
+  TRZ    0.18 -0.02  1.05  0.36 -0.55
+  NETRZ -0.13 -0.11  0.61  0.99 -0.41
+  ZEM    0.95 -0.08 -0.17  0.41 -0.46
+
+######## Specifikace C: dummy dle X-13 + trend v CI, K=2 ########
+Kointegrační vektor (normalizace na PRU = 1):
+    PRU     STA     TRZ   NETRZ     ZEM   trend 
+ 1.0000 -0.0669 -0.1054  0.4619 -2.0203  0.0095 
+Alfa a t-hodnoty:
+       PRU   STA   TRZ NETRZ   ZEM
+alfa 0.089 0.090 0.048 0.040 0.175
+t    5.106 3.032 1.972 0.942 4.867
+1 + beta'alfa = 0.744, poločas návratu = 2.3 Q
+
+(i) Dlouhodobé vůdcovství – slabá exogenita alfa_i = 0, p:
+  PRU   STA   TRZ NETRZ   ZEM 
+0.000 0.012 0.055 0.358 0.000 
+    společně slabě exogenní {TRZ, NETRZ}: LR = 3.73, df = 2, p = 0.155
+    vyloučení z dlouhodobého vztahu beta_i = 0, p:
+  PRU   STA   TRZ NETRZ   ZEM 
+0.166 0.900 0.829 0.047 0.000 
+
+(ii) Plná mzdová adaptabilita – beta = (1, -1, 0, ...), deterministika volná, p:
+        PRU STA TRZ NETRZ   ZEM
+PRU      NA   0   0     0 0.001
+STA   0.000  NA   0     0 0.000
+TRZ   0.000   0  NA     0 0.000
+NETRZ 0.000   0   0    NA 0.000
+ZEM   0.001   0   0     0    NA
+     slabší forma – homogenita (součet beta mezd = 0): p = 0.009
+
+(iii) Krátkodobé vůdcovství – Grangerova kauzalita v Gamma (Wald, řádek -> sloupec), p:
+       rovnice
+pricina   PRU   STA   TRZ NETRZ   ZEM
+  PRU      NA 0.649 0.947 0.998 0.153
+  STA   0.988    NA 0.583 0.403 0.719
+  TRZ   0.390 0.325    NA 0.251 0.399
+  NETRZ 0.922 0.261 0.461    NA 0.849
+  ZEM   0.001 0.101 0.028 0.605    NA
+     krátkodobý vůdce (i -> j a zároveň ne j -> i): ZEM -> PRU; ZEM -> TRZ 
+
+Korelace reziduí (současné spillovery v rámci čtvrtletí):
+       PRU   STA  TRZ NETRZ   ZEM
+PRU   1.00  0.22 0.57  0.35  0.21
+STA   0.22  1.00 0.33  0.30 -0.07
+TRZ   0.57  0.33 1.00  0.55  0.24
+NETRZ 0.35  0.30 0.55  1.00  0.29
+ZEM   0.21 -0.07 0.24  0.29  1.00
+
+Dlouhodobé dopady šoků C = beta_perp (alfa_perp' Gamma beta_perp)^-1 alfa_perp' (sloupec = šok):
+       sok
+odezva   PRU   STA   TRZ NETRZ   ZEM
+  PRU   1.70 -0.02 -0.03  0.22 -0.90
+  STA   0.74  0.71  0.03  0.26 -0.81
+  TRZ   0.50 -0.05  0.99  0.19 -0.54
+  NETRZ 0.32 -0.09  0.15  0.95 -0.38
+  ZEM   0.87 -0.05 -0.03  0.31 -0.47
+
+-- Robustnost závěrů napříč specifikacemi --
+  spec boot p r=0 koren w.e. p (PRU STA TRZ NETRZ ZEM) dlouh. vudci  max p FWA
+A A    0.058      0.88  0.00 0.00 0.38 0.56 0.01       TRZ+NETRZ     0.001    
+B B    0.200      0.87  0.00 0.00 0.25 0.63 0.00       TRZ+NETRZ     0.001    
+C C    0.038      0.84  0.00 0.01 0.06 0.36 0.00       TRZ+NETRZ     0.001    
+D D    0.152      0.78  0.00 0.02 0.00 0.17 0.00       NETRZ         0.000    
+E E    0.002      0.87  0.00 0.00 0.00 0.01 0.00       -             0.000    
+F F    0.844      0.66  0.89 0.01 0.54 0.61            PRU+TRZ+NETRZ 0.035    
+  homog. p kratk. vudci                          
+A 0.387    ZEM -> PRU                            
+B 0.312    ZEM -> PRU                            
+C 0.009    ZEM -> PRU; ZEM -> TRZ                
+D 0.014    PRU -> TRZ; TRZ -> NETRZ; NETRZ -> ZEM
+E 0.000    ZEM -> PRU; ZEM -> TRZ                
+F 0.018    PRU -> TRZ; TRZ -> NETRZ              
+Pozn.: B – r=1 nepodloženo (boot p > 0.1, kořen > 0.83). D, F – bootstrap r=0 nezamítá, ale nejv. kořen <= 0.83
+ a alfa významná -> r=1 podle D'Adamova postupu (jako Litva a Slovinsko v Tab. 3). F má autokorelovaná rezidua.
+null device 
+          1 
+null device 
+          1 
+
+Hotovo.
