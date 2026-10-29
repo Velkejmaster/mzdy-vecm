@@ -148,8 +148,11 @@ cat(round(sort(Mod(eigen(comp)$values), decreasing = TRUE), 3), "\n")
 cat("(očekáváno n - r =", n - r, "jednotkových kořenů, ostatní < 1)\n")
 
 # --- 7. Impulzní odezvy (dlouhodobé efekty šoků) -------------------------
+# plot.varirf při více impulzech nastaví par(ask = TRUE) a v interaktivním
+# R čeká na Enter, proto se kreslí po jednom impulzu
+ir <- irf(v2v, n.ahead = 20, boot = TRUE, runs = 500, ortho = TRUE)
 pdf("vecm_irf.pdf", width = 9, height = 7)
-plot(irf(v2v, n.ahead = 20, boot = TRUE, runs = 500, ortho = TRUE))
+for (imp in colnames(y)) plot(ir, names = imp)
 dev.off()
 pdf("vecm_ect.pdf", width = 8, height = 4)
 plot(ts(cbind(y, 1) %*% vecm$beta, start = c(2000, 1), frequency = 4),
